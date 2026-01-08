@@ -1,0 +1,45 @@
+{
+  "name": "movix",
+  "version": "1.0.0",
+  "description": "Application Movix pour macOS avec VPN",
+  "author": "Timéo",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.movix.mac",
+    "productName": "Movix",
+    "files": [
+      "main.js",
+      "vpn-manager.js",
+      "preload.js",
+      "CH-FREE#8.ovpn",
+      "icon.icns"
+    ],
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "icon": "icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "extendInfo": {
+        "CFBundleIconFile": "icon.icns"
+      }
+    },
+    "extraResources": [
+      {
+        "from": "icon.icns",
+        "to": "icon.icns"
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}
